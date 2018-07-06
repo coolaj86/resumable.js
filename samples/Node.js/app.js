@@ -33,7 +33,11 @@ app.post('/upload', function(req, res){
     resumable.post(req, function(status, filename, original_filename, identifier){
         console.log('POST', status, original_filename, identifier);
 
-        res.send(status);
+        res.send({
+          status: status
+        , filename: filename
+        , identifier: identifier
+        });
     });
 });
 
